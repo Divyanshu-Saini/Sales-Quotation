@@ -24,8 +24,15 @@ app.use(bodyParser.urlencoded({
 app.set("view options", {layout: false});
 app.use(express.static(__dirname + '/public'));
 
-//Webhook for openweather api
+//Webhook for Sales Quotation
 app.post('/sales-quotation', (req, res) => {   
+        if (req.body.result.action === 'no') {
+        res.json({
+            "followupEvent": {
+                "name": "PROPERTY_SALE"
+            }
+        })
+    }
 });
 
 /*app.get('/', function (req, res) {
