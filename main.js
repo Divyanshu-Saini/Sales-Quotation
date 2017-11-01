@@ -31,9 +31,9 @@ app.post('/sales-quotation', (req, res) => {
     
 });
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
 res.sendfile(__dirname + '/public/home.html');
-});
+});*/
 
 //Starting server
 const server = app.listen(app.get('PORT'), function () {
