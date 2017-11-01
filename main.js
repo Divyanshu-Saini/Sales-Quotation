@@ -8,7 +8,7 @@ const apiai = require('apiai');
 
 
 //Access keys
-const APIAI_ACCESS_KEY = '';
+const APIAI_ACCESS_KEY = '2c9694a9e7f345538c7c0feeecc90cc6';
 
 //initializing app
 const app = express();
