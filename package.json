@@ -1,0 +1,31 @@
+{
+  "name": "sales-quotation",
+  "version": "1.0.0",
+  "description": "Provide quotation for real estate and bike sales",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Divyanshu-Saini/Sales-Quotation.git"
+  },
+  "keywords": [
+    "api.ai",
+    "chatbot",
+    "natural language",
+    "infobot"
+  ],
+  "author": "Divaynshu Saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Divyanshu-Saini/Sales-Quotation/issues"
+  },
+  "homepage": "https://github.com/Divyanshu-Saini/Sales-Quotation#readme",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
