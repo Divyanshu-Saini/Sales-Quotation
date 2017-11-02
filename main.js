@@ -25,11 +25,11 @@ app.set("view options", {layout: false});
 app.use(express.static(__dirname + '/public'));
 
 //Webhook for Sales Quotation
-app.post('/sales-quotation', (req, res) => {   
-        if (req.body.result.action === 'no') {
+app.post('/sales-quotation', (req, res) => {
+    if (req.body.result.action === 'no') {
         res.json({
             "followupEvent": {
-                "name": "PROPERTY_SALE"
+                "name": "SALES_QUOTATION"
             }
         })
     }
