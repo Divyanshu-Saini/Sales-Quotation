@@ -69,7 +69,7 @@ app.post('/sales-quotation', (req, res) => {
                 {
                     "items": [
                         {
-                            "description": "The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
+                            "description": "The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. It comes under:",
                             "image": {
                                 "url": "http://www.choosemybike.in/media/kcfinder/upload/images/bajaj-pulsar-200-ns.jpg"
                             },
@@ -107,9 +107,9 @@ app.post('/sales-quotation', (req, res) => {
 });
 
 //home page
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     res.sendfile(__dirname + '/public/home.html');
-});
+});*/
 
 //Quotation download link
 restService.get('/download', function (req, res) {
