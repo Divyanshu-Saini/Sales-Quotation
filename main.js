@@ -112,7 +112,7 @@ app.post('/sales-quotation', (req, res) => {
 });*/
 
 //Quotation download link
-restService.get('/download', function (req, res) {
+app.get('/download', function (req, res) {
     res.sendfile(__dirname + '/public/file.csv');
 });
 
