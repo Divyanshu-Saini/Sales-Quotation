@@ -125,9 +125,9 @@ app.post('/sales-quotation', (req, res) => {
 });
 
 //home page
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     res.sendfile(__dirname + '/public/home.html');
-});
+});*/
 
 //Quotation download link
 app.get('/download', function (req, res) {
