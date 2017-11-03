@@ -80,7 +80,7 @@ app.post('/sales-quotation', (req, res) => {
                                     "object one"
                                 ]
                             },
-                            "title": "Pulsar 200 NS"
+                            "title": "Quotation for Pulsar 200 NS"
                         },
                         {
                             "description": "The Bajaj Pulsar 200 Rsis a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
@@ -94,7 +94,7 @@ app.post('/sales-quotation', (req, res) => {
                                     "object two"
                                 ]
                             },
-                            "title": "Baja Pulsar 200 RS"
+                            "title": "Quotation for Baja Pulsar 200 RS"
                         }
                     ],
                     "platform": "google",
