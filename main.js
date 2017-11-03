@@ -47,11 +47,11 @@ app.post('/sales-quotation', (req, res) => {
         let bikebudget = req.body.result.parameters['unit-currency'];
         // JSON to CSV
         let bike = {
-            "Name":bikename,
-            "Color":bikecolor,
-            "Budget":bikebudget
+            "Name": bikename,
+            "Color": bikecolor,
+            "Budget": bikebudget
         };
-        let fields = ["Name","Color","Budget"];
+        let fields = ["Name", "Color", "Budget"];
         let csv = json2csv({ data: bike, fields: fields });
         fs.writeFile('public/file.csv', csv, function (err) {
             if (err) throw err;
@@ -59,7 +59,7 @@ app.post('/sales-quotation', (req, res) => {
         });
         return res.json({
             "messages": [
-             {
+                {
 
                     "displayText": "The quotations available are",
                     "platform": "google",
@@ -69,7 +69,7 @@ app.post('/sales-quotation', (req, res) => {
                 {
                     "items": [
                         {
-                            "description": "The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. It comes under:",
+                            "description": "The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
                             "image": {
                                 "url": "http://www.choosemybike.in/media/kcfinder/upload/images/bajaj-pulsar-200-ns.jpg"
                             },
@@ -81,20 +81,6 @@ app.post('/sales-quotation', (req, res) => {
                                 ]
                             },
                             "title": "Pulsar 200 NS"
-                        },
-                        {
-                            "description": "Premium Rs 12000",
-                            "image": {
-                                "url": "http://1.bp.blogspot.com/_5j_axJRogXw/TBNoyybUpyI/AAAAAAAAABU/mv77_DQxJhU/s1600/LIC_Logo.jpg"
-                            },
-                            "optionInfo": {
-                                "key": "itemTwo",
-                                "synonyms": [
-                                    "thing two",
-                                    "object two"
-                                ]
-                            },
-                            "title": "LIC Life Insurance"
                         }
                     ],
                     "platform": "google",
@@ -104,16 +90,34 @@ app.post('/sales-quotation', (req, res) => {
         });
     }
 
+    //Download Quotation for two wheeler
+    if (req.body.result.action == 'Two-Wheeler.Two-Wheeler-Download') {
+        return res.json({
+            "messages": [{
+                "displayText": "Click on this link to download the file",
+                "platform": "google",
+                "textToSpeech": "Click on this link to download the file",
+                "type": "simple_response"
+            }, {
+                "destinationName": "Destination Name",
+                "platform": "google",
+                "type": "link_out_chip",
+                "url": "https://sales-quotation.herokuapp.com/download"
+            }
+            ]
+        });
+    }
+
 });
 
 //home page
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.sendfile(__dirname + '/public/home.html');
-});*/
+});
 
 //Quotation download link
 app.get('/download', function (req, res) {
-    res.sendfile(__dirname + '/public/file.csv');
+    res.redirect("/file.csv");
 });
 
 //Starting server
