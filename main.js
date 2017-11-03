@@ -69,7 +69,7 @@ app.post('/sales-quotation', (req, res) => {
                 {
                     "items": [
                         {
-                            "description": "The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. It comes under: 1000$",
+                            "description": "The Bajaj Pulsar 200 NS is a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
                             "image": {
                                 "url": "http://www.choosemybike.in/media/kcfinder/upload/images/bajaj-pulsar-200-ns.jpg"
                             },
@@ -83,7 +83,7 @@ app.post('/sales-quotation', (req, res) => {
                             "title": "Pulsar 200 NS"
                         },
                         {
-                            "description": "The Bajaj Pulsar 200 Rsis a sports bike made by Bajaj Auto. It comes under: 1350$",
+                            "description": "The Bajaj Pulsar 200 Rsis a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
                             "image": {
                                 "url": "https://imgd.aeplcdn.com/600x337/bw/ec/27078/Bajaj-Pulsar-RS200-Front-threequarter-90540.jpg?wm=2"
                             },
@@ -105,7 +105,7 @@ app.post('/sales-quotation', (req, res) => {
     }
 
     //Download Quotation for two wheeler
-    if (req.body.result.action == 'Download' {
+    if (req.body.result.action == 'Two-Wheeler.Two-Wheeler-Download') {
         return res.json({
             "messages": [{
                 "displayText": "Click on this link to download the file",
