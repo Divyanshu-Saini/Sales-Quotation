@@ -99,21 +99,9 @@ app.post('/sales-quotation', (req, res) => {
                     ],
                     "platform": "google",
                     "type": "carousel_card"
-                }
-            ]
-        });
-    }
-
-    //Download Quotation for two wheeler
-    if (req.body.result.action == 'Two-Wheeler.Two-Wheeler-Download') {
-        return res.json({
-            "messages": [{
-                "displayText": "Click on this link to download the file",
-                "platform": "google",
-                "textToSpeech": "Click on this link to download the file",
-                "type": "simple_response"
-            }, {
-                "destinationName": "Destination Name",
+                },
+                {
+                "destinationName": "Download Your Quotation",
                 "platform": "google",
                 "type": "link_out_chip",
                 "url": "https://sales-quotation.herokuapp.com/download"
@@ -121,6 +109,7 @@ app.post('/sales-quotation', (req, res) => {
             ]
         });
     }
+
 
 });
 
