@@ -120,7 +120,7 @@ app.post('/sales-quotation', (req, res) => {
 
 //Quotation download link
 app.get('/download', function (req, res) {
-    res.redirect("/file.csv");
+    res.redirect("/Quotation.csv");
 });
 
 //Starting server
