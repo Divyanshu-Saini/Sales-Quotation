@@ -81,6 +81,20 @@ app.post('/sales-quotation', (req, res) => {
                                 ]
                             },
                             "title": "Pulsar 200 NS"
+                        },
+                        {
+                            "description": "The Bajaj Pulsar 200 Rsis a sports bike made by Bajaj Auto. It comes under:" + bikebudget,
+                            "image": {
+                                "url": "https://imgd.aeplcdn.com/600x337/bw/ec/27078/Bajaj-Pulsar-RS200-Front-threequarter-90540.jpg?wm=2"
+                            },
+                            "optionInfo": {
+                                "key": "itemTwo",
+                                "synonyms": [
+                                    "thing two",
+                                    "object two"
+                                ]
+                            },
+                            "title": "Baja Pulsar 200 RS"
                         }
                     ],
                     "platform": "google",
