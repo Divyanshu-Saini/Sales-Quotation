@@ -41,7 +41,7 @@ app.post('/sales-quotation', (req, res) => {
     }
 
     //Showing quotation
-    if (req.body.result.action === 'Two-Wheeler.Two-Wheeler-Quotation') {
+    if (req.body.result.action == 'Two-Wheeler.Quotation') {
         let bikename = req.body.result.parameters['bike_name'];
         let bikecolor = req.body.result.parameters['color'];
         let bikebudget = req.body.result.parameters['unit-currency'];
