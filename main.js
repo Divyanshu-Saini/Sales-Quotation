@@ -105,7 +105,7 @@ app.post('/sales-quotation', (req, res) => {
     }
 
     //Download Quotation for two wheeler
-    if (req.body.result.action == 'Two-Wheeler.Two-Wheeler-Download') {
+    if (req.body.result.action == 'Download' {
         return res.json({
             "messages": [{
                 "displayText": "Click on this link to download the file",
