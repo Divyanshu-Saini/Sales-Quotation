@@ -53,7 +53,7 @@ app.post('/sales-quotation', (req, res) => {
         };
         let fields = ["Name", "Color", "Budget"];
         let csv = json2csv({ data: bike, fields: fields });
-        fs.writeFile('public/file.csv', csv, function (err) {
+        fs.writeFile('public/Quotation.csv', csv, function (err) {
             if (err) throw err;
             console.log('file saved');
         });
