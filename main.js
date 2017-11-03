@@ -59,13 +59,13 @@ app.post('/sales-quotation', (req, res) => {
         });
         return res.json({
             "messages": [
-            /*    {
+             {
 
                     "displayText": "The quotations available are",
                     "platform": "google",
                     "textToSpeech": "The quotations available are",
                     "type": "simple_response"
-                },*/
+                },
                 {
                     "items": [
                         {
