@@ -40,11 +40,12 @@ app.post('/sales-quotation', (req, res) => {
         })
     }
 
-    //Showing quotation
+    //Showing two wheeler quotation
     if (req.body.result.action == 'Two-Wheeler.Quotation') {
         let bikename = req.body.result.parameters['bike-name'];
         let bikecolor = req.body.result.parameters['color'];
         let bikebudget = req.body.result.parameters['unit-currency'];
+        console.log(bikename,bikecolor,bikebudget);
         // JSON to CSV
         let bike = {
             "Name": bikename,
@@ -53,7 +54,7 @@ app.post('/sales-quotation', (req, res) => {
         };
         let fields = ["Name", "Color", "Budget"];
         let csv = json2csv({ data: bike, fields: fields });
-        fs.writeFile('public/Quotation.csv', csv, function (err) {
+        fs.writeFile('public/bikeQuotation.csv', csv, function (err) {
             if (err) throw err;
             console.log('file saved');
         });
@@ -109,6 +110,79 @@ app.post('/sales-quotation', (req, res) => {
             ]
         });
     }
+    //Showing Four  wheeler quotation
+    if (req.body.result.action == 'Four-Wheeler.Quotation') {
+        let carname = req.body.result.parameters['car-name'];
+        let carcolor = req.body.result.parameters['color'];
+        let carbudget = req.body.result.parameters['unit-currency'];
+        let carfuel = req.body.result.parameters['fuel'];
+        console.log(carname, carcolor, carbudget, carfuel);
+        // JSON to CSV
+        let car = {
+            "Name": carname,
+            "Color": carcolor,
+            "Fuel":carfuel,
+            "Budget": carbudget
+        };
+        let fields = ["Name", "Color", "Fuel","Budget"];
+        let csv = json2csv({ data: bike, fields: fields });
+        fs.writeFile('public/carQuotation.csv', csv, function (err) {
+            if (err) throw err;
+            console.log('file saved');
+        });
+        return res.json({
+            "messages": [
+                {
+
+                    "displayText": "The quotations available are",
+                    "platform": "google",
+                    "textToSpeech": "The quotations available are",
+                    "type": "simple_response"
+                },
+                {
+                    "items": [
+                        {
+                            "description": "Automobili Lamborghini S.p.A. is an Italian brand and manufacturer of luxury supercars, sports cars and SUVs based in Sant'Agata Bolognese, Italy",
+                            "image": {
+                                "url": "https://www.extremetech.com/wp-content/uploads/2016/10/Lamborghini-Egoista-LF-3-4-HERO.jpg"
+                            },
+                            "optionInfo": {
+                                "key": "itemOne",
+                                "synonyms": [
+                                    "thing one",
+                                    "object one"
+                                ]
+                            },
+                            "title": "Quotation for Lamborghini Egostia"
+                        },
+                        {
+                            "description":"Automobili Lamborghini S.p.A. is an Italian brand and manufacturer of luxury supercars, sports cars and SUVs based in Sant'Agata Bolognese, Italy",
+                            "image": {
+                                "url": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/one-off/centenario/slider/centenario.jpg"
+                            },
+                            "optionInfo": {
+                                "key": "itemTwo",
+                                "synonyms": [
+                                    "thing two",
+                                    "object two"
+                                ]
+                            },
+                            "title": "Quotation for Lamborghini Centenario"
+                        }
+                    ],
+                    "platform": "google",
+                    "type": "carousel_card"
+                },
+                {
+                "destinationName": "Download Quotation",
+                "platform": "google",
+                "type": "link_out_chip",
+                "url": "https://sales-quotation.herokuapp.com/download-car"
+            }
+            ]
+        });
+    }
+
 
 
 });
@@ -119,8 +193,11 @@ app.post('/sales-quotation', (req, res) => {
 });*/
 
 //Quotation download link
-app.get('/download', function (req, res) {
-    res.redirect("/Quotation.csv");
+app.get('/download-bike', function (req, res) {
+    res.redirect("/bikeQuotation.csv");
+});
+app.get('/download-car', function (req, res) {
+    res.redirect("/carQuotation.csv");
 });
 
 //Starting server
