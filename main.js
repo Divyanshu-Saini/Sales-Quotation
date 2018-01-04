@@ -105,7 +105,7 @@ app.post('/sales-quotation', (req, res) => {
                 "destinationName": "Download Your Quotation",
                 "platform": "google",
                 "type": "link_out_chip",
-                "url": "https://sales-quotation.herokuapp.com/download"
+                "url": "https://sales-quotation.herokuapp.com/download-bike"
             }
             ]
         });
